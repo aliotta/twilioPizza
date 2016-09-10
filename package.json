@@ -1,0 +1,37 @@
+{
+  "name": "customerapi",
+  "version": "1.2.0",
+  "description": "",
+  "main": "clockWorker.js",
+  "engine": "4.4.1",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "http": "0.0.0",
+    "lodash": "^3.10.1",
+    "node-schedule": "^1.1.1",
+    "twilio": "^2.10.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.3.0",
+    "csv-parse": "^1.1.1",
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0",
+    "timekeeper": "0.0.5"
+  },
+  "engines": {
+    "node": "4.3.2"
+  },
+  "scripts": {
+    "test_backend": "env LOCAL_TESTING=TRUE mocha --timeout 20000 test/backend_scripts/*/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "aliotta@zumepizza.com",
+  "license": "ISC"
+}
