@@ -93,11 +93,13 @@ function startCronJobs() {
 
 function startCronForTwilio(kitchen_id){
     try {
-        var rule = new schedule.RecurrenceRule();
-        rule.hour = 23; // this will execute at 4:20 PM PST everyday
+        var rule = new schedule.RecurrenceRule();  // this will execute at 4:20 PM PST everyday
+        rule.dayOfWeek = 7;
+        rule.hour = 23;
         rule.minute = 20;
+        console.log("RULE", rule)
         var dailyCronJob = schedule.scheduleJob(
-            rule,
+            '0 20 23 * * 1,2-5',
             function() {
                 sendToTestingEnv({ jobStatus: 'daily_scheduler_executed' });
                 console.log("Daily Job Executed");
@@ -110,8 +112,9 @@ function startCronForTwilio(kitchen_id){
         console.log("cron pattern not valid", err);
     }
 }
-
+var counter = 0;
 function callJourdan(){
+    counter++;
     var url;
     var to;
     if(process.env.LOCAL_TESTING){
@@ -121,8 +124,7 @@ function callJourdan(){
         to = '+19084894919';
         url = 'http://127.0.0.1:5000/twilio';
     }
-    console.log('calling Jourdan');
-    if(process.env.LOCAL_TESTING === 'TRUE'){
+    if(process.env.DONT_CALL !== 'true'){
         sendToTestingEnv({ jobStatus: 'called' });
         //Place a phone call, and respond with TwiML instructions from the given URL
         client.makeCall({
@@ -132,13 +134,21 @@ function callJourdan(){
             url: url // A URL that produces an XML document (TwiML) which contains instructions for the call
 
         }, function(err, responseData) {
-
+            console.log('hmmm', responseData)
             //executed when the call has been initiated.
-            console.log(responseData, err); // outputs "+14506667788"
+            //console.log(responseData, err); // outputs "+14506667788"
 
         });
     } else {
-
+        if(process.env.NUM_CALLS !== undefined){
+            process.env.NUM_CALLS = 1 + parseInt(process.env.NUM_CALLS);
+        }
+        sendToTestingEnv({ jobStatus: 'called' });
+    }
+    if(counter === 5 && process.env.NUM_CALLS){
+        setTimeout(function(){
+            sendToTestingEnv({ jobStatus: 'called_five_times', count: process.env.NUM_CALLS });
+        },4000)
     }
 }
 
