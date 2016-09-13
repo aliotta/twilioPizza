@@ -41,7 +41,7 @@ function placeCall(){
         client.makeCall({
 
             to: to, // Any number Twilio can call
-            from: '+17327599398 ', // A number you bought from Twilio and can use for outbound communication
+            from: '+17327599398', // A number you bought from Twilio and can use for outbound communication
             url: url + '/twilio' // A URL that produces an XML document (TwiML) which contains instructions for the call
 
         }, function(err, responseData) {

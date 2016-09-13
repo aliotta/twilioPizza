@@ -12,7 +12,7 @@ module.exports = function (app, express) {
         response.set('Content-Type','text/xml');
         var twiml = new twilio.TwimlResponse();
         twiml.say('Hello is this Jordan?', { voice: 'man'});
-        twiml.record({maxLength:"45", transcribe:true, playBeep:"false"})
+        twiml.record({maxLength:"45", playBeep:"false"})
         console.log('SHA', twiml.toString())
         response.send(twiml.toString());
     });
