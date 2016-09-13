@@ -45,7 +45,7 @@ function placeCall(){
             url: url + '/twilio' // A URL that produces an XML document (TwiML) which contains instructions for the call
 
         }, function(err, responseData) {
-            console.log('hmmm', responseData, url, to)
+            console.log('hmmm', responseData, url, to, err)
             //executed when the call has been initiated.
             //console.log(responseData, err); // outputs "+14506667788"
 
