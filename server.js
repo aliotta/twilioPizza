@@ -93,7 +93,6 @@ try{
         try {
             var hour = process.env.CALL_HOUR;
             var minute = process.env.CALL_MINUTE;
-            console.log("RULE", rule)
             var dailyCronJob = schedule.scheduleJob(
                 '0 ' + minute + ' ' + hour + ' * * 1,2-5',
                 function() {
