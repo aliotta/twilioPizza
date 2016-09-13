@@ -32,8 +32,8 @@ function placeCall(){
         to = '+19084894919';
         url = ngrokURL;
     } else {
-        to = process.env.TO_PHONE;
-        url = ngrokURL;
+        to = process.env.TO_PHONE_NUMBER;
+        url = process.env.HOSTED_URL; //TODO prob a better way to do this
     }
     if(process.env.DONT_CALL !== 'true'){
         sendToTestingEnv({ jobStatus: 'called' });

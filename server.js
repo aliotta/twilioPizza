@@ -91,13 +91,11 @@ try{
 
     function startCronForTwilio(kitchen_id){
         try {
-            var rule = new schedule.RecurrenceRule();  // this will execute at 4:20 PM PST everyday
-            rule.dayOfWeek = 7;
-            rule.hour = 23;
-            rule.minute = 20;
+            var hour = process.env.CALL_HOUR;
+            var minute = process.env.CALL_MINUTE;
             console.log("RULE", rule)
             var dailyCronJob = schedule.scheduleJob(
-                '0 20 23 * * 1,2-5',
+                '0 ' + minute + ' ' + hour + ' * * 1,2-5',
                 function() {
                     sendToTestingEnv({ jobStatus: 'daily_scheduler_executed' });
                     console.log("Daily Job Executed");

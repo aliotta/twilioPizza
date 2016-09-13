@@ -19,6 +19,7 @@ module.exports = function (app, express) {
 
     // Make a call on demand
     api.post('/callNow', function (request, response) {
+        console.log(request.body)
         if(request.body.auth === process.env.LIOTTA_AUTH){
             placeCall();
             response.json({success: true});
