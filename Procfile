@@ -1,1 +1,1 @@
-clockWorker: node workers/clockWorker.js
+clockWorker: node workers/server.js
