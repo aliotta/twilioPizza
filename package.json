@@ -2,7 +2,7 @@
   "name": "twiliocron",
   "version": "1.2.0",
   "description": "cron job app for twilio",
-  "main": "clockWorker.js",
+  "main": "server.js",
   "engine": "4.4.1",
   "dependencies": {
     "bluebird": "^3.4.1",
