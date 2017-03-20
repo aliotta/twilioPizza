@@ -18,6 +18,9 @@ module.exports = function (app, express) {
         twilioController.orderPizza()
         .then(function(res){
             console.log("SUCCESSS?", res);
+            if(res.data.errorMessage){
+                throw new Error('Unsuccessful: ' + res.data.errorMessage);
+            };
             response.set('Content-Type','text/xml');
             response.send('<Response><Message>Pizza is on the way</Message></Response>');
         })
