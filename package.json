@@ -5,6 +5,7 @@
   "main": "server.js",
   "engine": "4.4.1",
   "dependencies": {
+    "aws-api-gateway-client": "^0.1.12",
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
@@ -16,6 +17,7 @@
     "node-schedule": "^1.1.1",
     "q": "^1.4.1",
     "request": "^2.74.0",
+    "request-promise": "^4.2.0",
     "twilio": "^2.10.0"
   },
   "devDependencies": {
