@@ -1,7 +1,7 @@
 {
-  "name": "twiliocron",
-  "version": "1.2.0",
-  "description": "cron job app for twilio",
+  "name": "twiliopizza",
+  "version": "1.0.0",
+  "description": "twilio interface for aws api gateway",
   "main": "server.js",
   "engine": "4.4.1",
   "dependencies": {
@@ -13,26 +13,17 @@
     "express": "^4.14.0",
     "http": "0.0.0",
     "lodash": "^3.10.1",
-    "ngrok": "^2.2.2",
-    "node-schedule": "^1.1.1",
     "q": "^1.4.1",
     "request": "^2.74.0",
     "request-promise": "^4.2.0",
     "twilio": "^2.10.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "chai-as-promised": "^5.3.0",
-    "csv-parse": "^1.1.1",
-    "mocha": "^2.3.3",
-    "supertest": "^1.1.0",
-    "timekeeper": "0.0.5"
   },
   "engines": {
     "node": "4.3.2"
   },
   "scripts": {
-    "test_backend": "env LOCAL_TESTING=TRUE mocha --timeout 20000 test/backend_scripts/*/*.js"
   },
   "repository": {
     "type": "git",
