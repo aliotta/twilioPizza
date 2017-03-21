@@ -17,15 +17,15 @@ module.exports = function (app, express) {
     api.post('/', function (request, response) {
         twilioController.orderPizza()
         .then(function(res){
-            console.log("SUCCESSS?", res);
             if(res && res.data && res.data.errorMessage){
                 throw new Error('Unsuccessful: ' + res.data.errorMessage);
             };
+            console.log("SUCCESSS: ", res);
             response.set('Content-Type','text/xml');
             response.send('<Response><Message>Pizza is on the way</Message></Response>');
         })
         .catch(function(err){
-            console.log("YEAH FIGURES", err);
+            console.log("Error: ", err);
             response.send('<Response><Message>There was an error.</Message></Response>');
         });
 
