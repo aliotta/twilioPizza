@@ -16,7 +16,7 @@
     "q": "^1.4.1",
     "request": "^2.74.0",
     "request-promise": "^4.2.0",
-    "twilio": "^2.10.0"
+    "twilio": "^3.0.0"
   },
   "devDependencies": {
   },
