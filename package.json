@@ -5,7 +5,7 @@
   "main": "server.js",
   "engine": "4.4.1",
   "dependencies": {
-    "aws-api-gateway-client": "^0.1.12",
+    "aws-api-gateway-client": "^0.2.11",
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
