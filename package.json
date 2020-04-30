@@ -16,19 +16,22 @@
     "q": "^1.4.1",
     "request": "^2.74.0",
     "request-promise": "^4.2.0",
-    "twilio": "^2.10.0"
+    "twilio": "^2.10.0",
+    "snyk": "^1.316.1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "engines": {
     "node": "4.3.2"
   },
   "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
     "url": ""
   },
   "author": "aliotta@zumepizza.com",
-  "license": "ISC"
+  "license": "ISC",
+  "snyk": true
 }
